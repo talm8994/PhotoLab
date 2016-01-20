@@ -254,6 +254,8 @@ public class Picture extends SimplePicture
     beach.explore();
     beach.zeroRed();
     beach.explore();
+    beach.zeroGreen();
+    beach.zeroBlue();
     
   }
   
