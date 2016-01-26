@@ -145,6 +145,68 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void mirrorVerticalRightToLeft()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int width = pixels[0].length;
+	 
+	 for(int row = 0; row < pixels.length; row++)
+	 {
+		 for(int col = pixels[0].length; col > width / 2; col--)
+		 {
+			 rightPixel =pixels[row][col];
+			 leftPixel = pixels[row][(width / 2) - (col - width / 2)];
+			 leftPixel.setColor(rightPixel.getColor());
+		 }
+	 }
+	  
+  }
+  
+  public void randomChange()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel current : row)
+		  {
+			  int randomScale = (int)(Math.random()*500000);
+			  int plusOrMinus = (int)(Math.random()*200000);
+			  if(plusOrMinus > 0)
+			  {
+				  current.setRed((current.getRed()+randomScale)% 225);
+				  current.setBlue((current.getBlue()+randomScale)% 225);
+				  current.setGreen((current.getGreen()+randomScale)% 225);
+			  }
+			  else
+			  {
+				  current.getRed((current.getRed() - randomScale) %225);
+				  current.getGreen((current.getGreen() - randomScale) %225);
+				  current.getBlue((current.getBlue() - randomScale) %225);
+			  }
+			
+		  }
+	   }
+  }
+  
+  public void randomColor()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] row : pixels)
+	  {
+		  for(Pixel current : row)
+		  {
+			  int randomRed = (int)(Math.random()* 256);
+			  int randomGreen = (int)(Math.random()* 256);
+			  int randomBlue = (int)(Math.random()* 256);
+			  
+			  current.setRed(randomRed);
+			  current.setGreen(randomGreen);
+			  current.setBlue(randomBlue);
+		  }
+	  }
+  }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -250,12 +312,16 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture(".jpg");
+    Picture beach = new Picture("gorge.jpg");
     beach.explore();
-    beach.zeroRed();
+    //beach.zeroRed();
+    //beach.zeroGreen();
+    //beach.zeroBlue();
+    //beach.createCollage();
+    //beach.edgeDetection(10);
+    //beach.randomColor();
+    beach.randomChange();
     beach.explore();
-    beach.zeroGreen();
-    beach.zeroBlue();
     
   }
   
