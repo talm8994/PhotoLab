@@ -171,8 +171,8 @@ public class Picture extends SimplePicture
 	  {
 		  for(Pixel current : row)
 		  {
-			  int randomScale = (int)(Math.random()*500000);
-			  int plusOrMinus = (int)(Math.random()*200000);
+			  int randomScale = (int)(Math.random()*5);
+			  int plusOrMinus = (int)(Math.random()*2);
 			  if(plusOrMinus > 0)
 			  {
 				  current.setRed((current.getRed()+randomScale)% 225);
@@ -229,6 +229,23 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     }
+  }
+  public void mirrorArms()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int mirrorPoint1 = 107;
+	  {
+		  for (int row = 22; row < 22; row++)
+		  {
+			  for (int col = 33; col < mirrorPoint1; col++)
+			  {
+				  leftPixel = pixels[row][col];
+				  rightPixel = pixels[row];
+			  }
+		  }
+	  }
   }
   
   /** copy from the passed fromPic to the
@@ -307,12 +324,14 @@ public class Picture extends SimplePicture
   }
   
   
+  
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("gorge.jpg");
+    Picture beach = new Picture("snowman.jpg");
     beach.explore();
     //beach.zeroRed();
     //beach.zeroGreen();
@@ -320,7 +339,9 @@ public class Picture extends SimplePicture
     //beach.createCollage();
     //beach.edgeDetection(10);
     //beach.randomColor();
-    beach.randomChange();
+    //beach.randomChange();
+    //beach.mirrorTemple();
+    //beach.mirrorVerticalRightToLeft();
     beach.explore();
     
   }

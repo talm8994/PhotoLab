@@ -52,6 +52,12 @@ public class PictureTester
     swan.explore();
   }
   
+  public static viod testMirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.mirrorArm();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -67,8 +73,8 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     testMirrorVertical();
-    //testMirrorTemple();
-    //testMirrorArms();
+    testMirrorTemple();
+    testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
