@@ -242,7 +242,6 @@ public class Picture extends SimplePicture
 			  for (int col = 33; col < mirrorPoint1; col++)
 			  {
 				  leftPixel = pixels[row][col];
-				  rightPixel = pixels[row];
 			  }
 		  }
 	  }
@@ -335,13 +334,13 @@ public class Picture extends SimplePicture
     beach.explore();
     //beach.zeroRed();
     //beach.zeroGreen();
-    //beach.zeroBlue();
+   // beach.zeroBlue();
     //beach.createCollage();
     //beach.edgeDetection(10);
     //beach.randomColor();
     //beach.randomChange();
     //beach.mirrorTemple();
-    //beach.mirrorVerticalRightToLeft();
+    beach.mirrorVertical();
     beach.explore();
     
   }
