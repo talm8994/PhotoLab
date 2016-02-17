@@ -164,6 +164,28 @@ public class Picture extends SimplePicture
 	  
   }
   
+  public void mirrorGull()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int count = 0;
+	  
+	  for(int row = 230; row < 321; row++)
+	  {
+		  for(int col = 235;  col < 345; col++)
+		  {
+			  leftPixel = pixels[row][col];
+			  rightPixel = pixels[row][345 - col + 345];
+			  rightPixel.setColor(leftPixel.getColor());
+		  }
+		  
+	  }
+	 
+	  
+  }
+  
+  
   public void randomChange()
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -330,17 +352,9 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("snowman.jpg");
+    Picture beach = new Picture("hype.jpg");
     beach.explore();
-    //beach.zeroRed();
-    //beach.zeroGreen();
-   // beach.zeroBlue();
-    //beach.createCollage();
-    //beach.edgeDetection(10);
-    //beach.randomColor();
-    //beach.randomChange();
-    //beach.mirrorTemple();
-    beach.mirrorVertical();
+    beach.randomColor();
     beach.explore();
     
   }
